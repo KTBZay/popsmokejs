@@ -1,0 +1,22 @@
+{
+  "name": "psjs",
+  "version": "1.0.2",
+  "description": "Pop smoke framework that helps in creating discord bots, or using other functions that this framework offers",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./psFiles/app.js"
+  },
+  "author": "Zay",
+  "license": "ISC",
+  "dependencies": {
+    "consolidate": "^0.16.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.17.3",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2"
+  }
+}
