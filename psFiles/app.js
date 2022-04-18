@@ -1,16 +1,27 @@
-const { NewApplication } = require("./lib/application/server");
+const { NewApplication, newDatabase } = require("./lib/application/server");
 const { read } = require("./lib/readApplication/read");
+const events = require('./lib/eventHandler/eventhandler');
+const { lib_modules } = require("./lib/modules");
+const { pop } = require("./lib/eventHandler/src/src");
 const ECHO = {};
 ECHO.data = [];
 ECHO.methods = {};
 ECHO.get = {}
 ECHO.get.profile = {
     name: 'PopSmokeJs',
-    version: '1.2x'
+    version: '1.3x'
 };
+ECHO.get.plugins = async () => {
+    console.log(lib_modules)
+}
+ECHO.ws = {};
+ECHO.ws = pop;
+ECHO.ws.on = pop.on; 
+ECHO.ws.login = pop.send;
 ECHO.methods.ReadAppData = read;
 ECHO.methods.NewApp = NewApplication;
 ECHO.methods.ClearPanel = console.clear;
+ECHO.methods.newDB = newDatabase; 
 ECHO.methods.SystemInit = () => {
     console.clear();
     console.log(`[PS]: PopSmokeJs created by Zay\n[PS-EchoData-V]: ${ECHO.profile.version}`)

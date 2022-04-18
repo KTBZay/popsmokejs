@@ -1,4 +1,4 @@
-const read = ( db, table, {host,user,pass}) => {
+const read = ( db, table, where, {host,user,pass}) => {
     const mysql = require('mysql');
     const conn = mysql.createConnection({
         host: host,
@@ -9,10 +9,11 @@ const read = ( db, table, {host,user,pass}) => {
     conn.connect((err)=>{
         if(err) throw err;
         console.log('[E]: Retriving data')
-        const GetTableData = `SELECT * FROM ${table}`;
+        const GetTableData = `SELECT ${where} FROM ${table}`;
         conn.query(GetTableData, (err,result, fields) => {
             if(err) throw err;
-            console.log(`[E]: Data gathered = \n ` + result)
+            console.log(`[E]: Data gathered = `)
+            console.log(result)
         })
     })
 }
